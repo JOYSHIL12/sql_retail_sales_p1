@@ -128,7 +128,17 @@ GROUP
 ORDER BY 1
 ```
 
-7. **Write a SQL query to calculate the average sale for each month. Find out best selling month in each year**:
+7. **Write a SQL query to calculate the average sale for each month.
+```select 
+	extract (Year from sale_date) as  year,
+	extract (Month from sale_date) as  month,
+	 round (Avg (total_sale):: numeric, 2) as avg_sale
+	from retail_sales
+	
+	group by 1,2
+	order by 1,2;
+```
+** Find out best selling month in each year**
 ```sql
 SELECT 
        year,
